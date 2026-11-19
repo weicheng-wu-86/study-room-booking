@@ -1,5 +1,7 @@
 # 自习室预约系统
 
+[![CI](https://github.com/weicheng-wu-86/study-room-booking/actions/workflows/ci.yml/badge.svg)](https://github.com/weicheng-wu-86/study-room-booking/actions/workflows/ci.yml)
+
 基于 Spring Boot + Vue 的自习室预约系统（毕业设计）。学生在线选座预约、到场扫码签到、暂离与签退；
 系统自动释放超时未签到的座位并记录违约；管理员维护自习室与座位、查看使用统计。
 
@@ -16,8 +18,8 @@
 backend/        Spring Boot 后端（源码、建表脚本 schema.sql、JUnit 集成测试）
 frontend/       Vue 3 前端；mock/server.js 是接口一致的模拟后端
 experiments/    并发预约对照实验脚本及实验结果
-tools/          SQL 校验脚本（在真实 MySQL 上验证建表脚本与全部手写 SQL）
-.github/        GitHub Actions：自动编译、运行测试、构建前端
+tools/          SQL 校验脚本、接口冒烟测试脚本
+.github/        GitHub Actions：编译、集成测试、启动后端做接口冒烟测试、构建前端
 ```
 
 ## 快速开始
@@ -61,6 +63,9 @@ npm run dev
 ```bash
 # 后端集成测试（30 个用例，需要本机已启动 MySQL 和 Redis，使用独立的 studyroom_test 库）
 cd backend && mvn test
+
+# 接口冒烟测试：先启动后端并等演示数据写入完成，再通过 HTTP 走一遍主要流程（43 项检查）
+python tools/api_smoke.py --base http://localhost:8080/api
 
 # SQL 校验：建表脚本、实体与表字段对照、全部手写 SQL
 python tools/verify_sql.py --user root --password 你的密码
