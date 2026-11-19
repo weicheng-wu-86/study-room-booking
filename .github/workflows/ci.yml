@@ -52,11 +52,12 @@ jobs:
         working-directory: backend
         run: |
           nohup java -jar target/study-room-booking-1.0.0.jar > app.log 2>&1 &
-          for i in $(seq 1 60); do
-            if curl -s -o /dev/null http://localhost:8080/api/rules; then echo "后端已启动（${i} 秒）"; exit 0; fi
+          # Tomcat 先启动、演示数据随后才写入，所以以日志中的“写入完成”为准，而不是端口能否连通
+          for i in $(seq 1 120); do
+            if grep -q "演示数据写入完成" app.log; then echo "后端已启动，演示数据写入完成（${i} 秒）"; exit 0; fi
             sleep 1
           done
-          echo "后端 60 秒内未能启动"; cat app.log; exit 1
+          echo "后端 120 秒内未能完成启动"; cat app.log; exit 1
 
       - name: 接口冒烟测试
         run: python3 tools/api_smoke.py --base http://localhost:8080/api
