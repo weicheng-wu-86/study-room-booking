@@ -1,0 +1,10 @@
+# 集成测试配置：使用独立的测试库，关闭演示数据和自动定时扫描（由测试代码手动触发）
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:studyroom_test}?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    hikari:
+      maximum-pool-size: 20
+
+studyroom:
+  demo-data: false
+  scheduling-enabled: false

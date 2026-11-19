@@ -1,0 +1,154 @@
+{
+  "environment": {
+    "mysql": "8.0.46-0ubuntu0.24.04.5",
+    "isolation": "REPEATABLE-READ",
+    "redis": "7.0.15",
+    "users": 100,
+    "rounds": 20,
+    "seed": 20261117,
+    "run_at": "2026-11-17 16:20:32"
+  },
+  "results": {
+    "S1": {
+      "naive": {
+        "rounds": 20,
+        "success_min": 17,
+        "success_max": 99,
+        "success_avg": 60.15,
+        "rounds_with_double_booking": 20,
+        "double_booked_hours_total": 3549,
+        "orphan_rows_total": 0,
+        "deadlock_total": 0,
+        "busy_total": 0,
+        "error_total": 0,
+        "elapsed_avg_ms": 51.2,
+        "latency_avg_ms": 30.0,
+        "latency_p95_ms": 39.7
+      },
+      "unique-index": {
+        "rounds": 20,
+        "success_min": 1,
+        "success_max": 1,
+        "success_avg": 1,
+        "rounds_with_double_booking": 0,
+        "double_booked_hours_total": 0,
+        "orphan_rows_total": 0,
+        "deadlock_total": 0,
+        "busy_total": 0,
+        "error_total": 0,
+        "elapsed_avg_ms": 106.0,
+        "latency_avg_ms": 74.0,
+        "latency_p95_ms": 92.2
+      },
+      "lock+index": {
+        "rounds": 20,
+        "success_min": 1,
+        "success_max": 1,
+        "success_avg": 1,
+        "rounds_with_double_booking": 0,
+        "double_booked_hours_total": 0,
+        "orphan_rows_total": 0,
+        "deadlock_total": 0,
+        "busy_total": 0,
+        "error_total": 0,
+        "elapsed_avg_ms": 332.8,
+        "latency_avg_ms": 197.4,
+        "latency_p95_ms": 286.2
+      }
+    },
+    "S2": {
+      "naive": {
+        "rounds": 20,
+        "success_min": 18,
+        "success_max": 100,
+        "success_avg": 66.15,
+        "rounds_with_double_booking": 20,
+        "double_booked_hours_total": 2910,
+        "orphan_rows_total": 0,
+        "deadlock_total": 0,
+        "busy_total": 0,
+        "error_total": 0,
+        "elapsed_avg_ms": 53.0,
+        "latency_avg_ms": 30.6,
+        "latency_p95_ms": 40.6
+      },
+      "unique-index": {
+        "rounds": 20,
+        "success_min": 5,
+        "success_max": 11,
+        "success_avg": 7.7,
+        "rounds_with_double_booking": 0,
+        "double_booked_hours_total": 0,
+        "orphan_rows_total": 0,
+        "deadlock_total": 177,
+        "busy_total": 0,
+        "error_total": 0,
+        "elapsed_avg_ms": 111.1,
+        "latency_avg_ms": 76.2,
+        "latency_p95_ms": 96.2
+      },
+      "lock+index": {
+        "rounds": 20,
+        "success_min": 5,
+        "success_max": 11,
+        "success_avg": 7.55,
+        "rounds_with_double_booking": 0,
+        "double_booked_hours_total": 0,
+        "orphan_rows_total": 0,
+        "deadlock_total": 0,
+        "busy_total": 0,
+        "error_total": 0,
+        "elapsed_avg_ms": 408.9,
+        "latency_avg_ms": 255.2,
+        "latency_p95_ms": 356.0
+      }
+    },
+    "S3": {
+      "naive": {
+        "rounds": 20,
+        "success_min": 100,
+        "success_max": 100,
+        "success_avg": 100,
+        "rounds_with_double_booking": 0,
+        "double_booked_hours_total": 0,
+        "orphan_rows_total": 0,
+        "deadlock_total": 0,
+        "busy_total": 0,
+        "error_total": 0,
+        "elapsed_avg_ms": 53.1,
+        "latency_avg_ms": 33.2,
+        "latency_p95_ms": 42.5
+      },
+      "unique-index": {
+        "rounds": 20,
+        "success_min": 100,
+        "success_max": 100,
+        "success_avg": 100,
+        "rounds_with_double_booking": 0,
+        "double_booked_hours_total": 0,
+        "orphan_rows_total": 0,
+        "deadlock_total": 0,
+        "busy_total": 0,
+        "error_total": 0,
+        "elapsed_avg_ms": 99.1,
+        "latency_avg_ms": 72.8,
+        "latency_p95_ms": 86.5
+      },
+      "lock+index": {
+        "rounds": 20,
+        "success_min": 100,
+        "success_max": 100,
+        "success_avg": 100,
+        "rounds_with_double_booking": 0,
+        "double_booked_hours_total": 0,
+        "orphan_rows_total": 0,
+        "deadlock_total": 0,
+        "busy_total": 0,
+        "error_total": 0,
+        "elapsed_avg_ms": 196.2,
+        "latency_avg_ms": 157.4,
+        "latency_p95_ms": 181.0
+      }
+    }
+  }
+}
